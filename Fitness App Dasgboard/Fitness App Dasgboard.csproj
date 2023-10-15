@@ -9,9 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Gojo.png" />
+    <None Remove="Images\Itadori.jpg" />
     <None Remove="Images\Karma.jpg" />
+    <None Remove="Images\NanamiFace.png" />
+    <None Remove="Images\Novigrad.png" />
     <None Remove="Images\Sukuna.jpg" />
     <None Remove="Images\Sukuna_User.jpeg" />
+    <None Remove="Images\Zoro.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,13 +25,28 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\Gojo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Itadori.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Karma.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\NanamiFace.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Novigrad.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Sukuna.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Sukuna_User.jpeg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Zoro.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

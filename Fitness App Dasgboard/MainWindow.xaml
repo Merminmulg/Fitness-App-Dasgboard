@@ -8,7 +8,7 @@
         xmlns:lvc ="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         xmlns:uc="clr-namespace:Fitness_App_Dasgboard.UserControls"
         AllowsTransparency="True" Height="760" WindowStartupLocation="CenterScreen"
-        Width="1280" WindowStyle="None">
+        Width="1280" WindowStyle="None" Background="Transparent">
 
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis"/>
@@ -228,15 +228,112 @@
                                         <TextBlock Text="My Jogging" FontSize="20" FontWeight="SemiBold" Foreground="White" VerticalAlignment="Center"/>
                                     </StackPanel>
                                 </Border>
+
+                                <!--Chart-->
+                                <lvc:CartesianChart LegendLocation="None" Margin="-7" Grid.Row="1" DataTooltip="{x:Null}">
+                                    <lvc:CartesianChart.AxisX>
+                                        <lvc:Axis ShowLabels="False">
+                                            <lvc:Axis.Separator>
+                                                <lvc:Separator StrokeThickness="0"/>
+                                            </lvc:Axis.Separator>
+                                        </lvc:Axis>
+                                    </lvc:CartesianChart.AxisX>
+
+                                    <lvc:CartesianChart.AxisY>
+                                        <lvc:Axis ShowLabels="False" MinValue="0">
+                                            <lvc:Axis.Separator>
+                                                <lvc:Separator StrokeThickness="0"/>
+                                            </lvc:Axis.Separator>
+                                        </lvc:Axis>
+                                    </lvc:CartesianChart.AxisY>
+
+                                    <lvc:CartesianChart.Series>
+                                        <lvc:LineSeries StrokeThickness="2" PointGeometrySize="0" Values="10,10,50,30,100,80,120,110">
+                                            <lvc:LineSeries.Fill>
+                                                <LinearGradientBrush>
+                                                    <GradientStop Color="#e95e89" Offset="0"/>
+                                                    <GradientStop Color="#ef779c" Offset="0.9"/>
+                                                </LinearGradientBrush>
+                                            </lvc:LineSeries.Fill>
+
+                                            <lvc:LineSeries.Stroke>
+                                                <LinearGradientBrush>
+                                                    <GradientStop Color="#e95e89" Offset="0"/>
+                                                    <GradientStop Color="#ee7fa2" Offset="0.9"/>
+                                                </LinearGradientBrush>
+                                            </lvc:LineSeries.Stroke>
+                                        </lvc:LineSeries>
+                                    </lvc:CartesianChart.Series>
+                                </lvc:CartesianChart>
+
+                                <!--Titles-->
+                                <StackPanel Grid.Row="1" Margin="30 0 0 0" VerticalAlignment="Center">
+                                    <TextBlock Foreground="#fbc8d9" FontSize="14" Text="Total Time"/>
+                                    <TextBlock Foreground="#ffffff" FontSize="24" FontWeight="SemiBold" Text="748 Hr"/>
+                                    <TextBlock Foreground="#ffffff" FontSize="16" FontWeight="SemiBold" Text="July"/>
+                                </StackPanel>
+
+                                <Icon:PackIconMaterial Kind="ChevronRightCircleOutline" Foreground="#ffffff" Width="28" Height="28" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 40 25 0"/>
                             </Grid>
                         </Border>
-                        
                     </Grid>
                     
+                    <!--Bottom Info Cards-->
+                    <uc:InfoCard Grid.Column="0" Grid.Row="2" Title="Bicycle Drill" Desc="36 km/weeks" Percentage="45%" BottomText="17/36km" Days="2 days left" Icon="Bike" Value="5"/>
+                    <uc:InfoCard Grid.Column="1" Grid.Row="2" Title="Jogging Hero" Desc="12 km/month" Percentage="13%" BottomText="2/12km" Days="17 days left" Icon="Run" Value="3" IsActive="True"/>
+                    <uc:InfoCard Grid.Column="2" Grid.Row="2" Title="Healthy Busy" Desc="3600 steps/weeks" Percentage="90%" BottomText="3200/3600steps" Days="3 days left" Icon="ShoeSneaker" Value="9"/>
                 </Grid>
                 
-                
                 <!--Right Section-->
+                <Border Background="White" Grid.Column="2" CornerRadius="0 40 40 0">
+                    <StackPanel>
+                        <!--Top TitleBar-->
+                        <Grid Margin="10 30 0 5">
+                            <Icon:PackIconMaterial Kind="AccountGroupOutline" Style="{StaticResource titleIcon}"/>
+                            <TextBlock Text="Friends" Margin="40 0 0 0" Style="{StaticResource titleText}"/>
+                            <Button Content="View All" Style="{StaticResource titleButton}"/>
+                        </Grid>
+                        
+                        <!--Tab Buttons-->
+                        <Border CornerRadius="20" Background="#ebecf0" Padding="0" Margin="20 15">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Button Content="Activities" Background="#7163ba" Foreground="White" Style="{StaticResource tabButton}"/>
+                                <Button Content="Online" Grid.Column="1" Style="{StaticResource tabButton}"/>
+                            </Grid>
+                        </Border>
+
+                        <!--User Info-->
+                        <StackPanel>
+                            <uc:UserCard FullName="Itadori" Title="Weekly Bicycling" Time="10 min ago" Image="/Images/Itadori.jpg"/>
+                            <uc:UserCard FullName="Sukuna" Title="Slow Jogging" Time="47 min ago" Image="/Images/Sukuna.jpg"/>
+                            <uc:UserCard FullName="Nanami" Title="Morning Swim" Time="24 min ago" Image="/Images/NanamiFace.png"/>
+                            <uc:UserCard FullName="Zoro" Title="Quick Sprint" Time="30 min ago" Image="/Images/Zoro.png"/>
+                            <uc:UserCard FullName="Gojo" Title="Hiking" Time="2 hours ago" Image="/Images/Gojo.png"/>
+                        </StackPanel>
+
+                        <Separator Background="#e7e5f3" Margin="20 15" Height="0.8"/>
+                        
+                        <!--Bottom TitleBar-->
+                        <Grid Margin="10 0 0 0">
+                            <Icon:PackIconMaterial Kind="MapMarkerOutline" Style="{StaticResource titleIcon}"/>
+                            <TextBlock Text="Friends" Margin="40 0 0 0" Style="{StaticResource titleText}"/>
+                            <Button Content="View" Margin="0 3 15 0" Style="{StaticResource titleButton}"/>
+                        </Grid>
+                        
+                        <!--Map Image-->
+                        <Border CornerRadius="10" Height="125" Margin="25 10">
+                            <Border.Background>
+                                <ImageBrush ImageSource="Images/Novigrad.png"/>
+                            </Border.Background>
+                        </Border>
+                        
+                    </StackPanel>
+                </Border>
                 
             </Grid>
             
